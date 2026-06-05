@@ -2198,10 +2198,6 @@ textarea.cta-form-input {
 }
 
 @media (max-width: 576px) {
-    .logo-name {
-        display: none;
-    }
-
     .nav-contact-link {
         width: 44px;
         height: 44px;
