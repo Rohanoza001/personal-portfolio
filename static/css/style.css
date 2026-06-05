@@ -679,10 +679,10 @@ body::before {
 
 .hero-portrait-stage {
     width: min(470px, 42vw);
-    height: 500px;
+    aspect-ratio: 1;
     position: relative;
     display: grid;
-    align-items: end;
+    place-items: center;
     isolation: isolate;
 }
 
@@ -701,11 +701,10 @@ body::before {
 
 .hero-portrait-frame {
     width: 86%;
-    height: 92%;
-    margin-left: auto;
+    aspect-ratio: 1;
     position: relative;
     overflow: hidden;
-    border-radius: 180px 180px 28px 28px;
+    border-radius: 50%;
     border: 1px solid rgba(230, 57, 70, 0.3);
     background: var(--bg-surface);
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
@@ -724,7 +723,7 @@ body::before {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center top;
+    object-position: center 18%;
 }
 
 .portrait-status {
@@ -773,10 +772,10 @@ body::before {
     animation: floatingSkill 4s ease-in-out infinite;
 }
 
-.floating-skill-react { top: 7%; left: 4%; animation-delay: -0.5s; }
-.floating-skill-python { top: 20%; right: -4%; animation-delay: -1.7s; }
-.floating-skill-js { top: 48%; left: -3%; animation-delay: -2.6s; }
-.floating-skill-figma { bottom: 12%; right: -5%; animation-delay: -3.4s; }
+.floating-skill-react { top: 4%; left: 7%; animation-delay: -0.5s; }
+.floating-skill-python { top: 18%; right: 0; animation-delay: -1.7s; }
+.floating-skill-js { top: 48%; left: 0; animation-delay: -2.6s; }
+.floating-skill-figma { bottom: 9%; right: 5%; animation-delay: -3.4s; }
 
 @keyframes portraitGlow {
     50% { transform: scale(1.15); opacity: 0.7; }
@@ -2436,7 +2435,6 @@ textarea.cta-form-input {
     
     .hero-portrait-stage {
         width: min(390px, 88vw);
-        height: 420px;
         margin: 1rem auto 0;
     }
 }
