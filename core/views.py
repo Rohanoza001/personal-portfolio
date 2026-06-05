@@ -118,22 +118,22 @@ def portfolio(request):
         ],
         'experiences': [
             {
-                'role': 'Senior Full-Stack Developer',
-                'company': 'InnoTech Solutions',
-                'period': '2024 - Present',
-                'desc': 'Lead the development of client web applications, design RESTful APIs, and mentor junior developers in modern coding standards.'
+                'role': 'UI/UX Developer',
+                'company': 'Rezide Solution',
+                'period': 'Mumbai, Maharashtra, India',
+                'desc': 'Designing clean, responsive web experiences with a focus on user-friendly layouts, modern interface patterns, and practical product flows.'
             },
             {
-                'role': 'Web Developer',
-                'company': 'PixelPerfect Labs',
-                'period': '2022 - 2024',
-                'desc': 'Created high-performance UI components, optimized web loading times by 40%, and converted UI designs to responsive templates.'
+                'role': 'UI/UX & Frontend Contributor',
+                'company': 'Open House Main',
+                'period': 'Project Experience',
+                'desc': 'Led the design and development of a real estate website with property listing pages, search filters, lead capture flows, and responsive user journeys.'
             },
             {
-                'role': 'Junior Developer',
-                'company': 'LaunchPad Devs',
-                'period': '2020 - 2022',
-                'desc': 'Built and maintained client sites, wrote unit tests, and integrated third-party REST APIs into web applications.'
+                'role': 'Web & Product Design Projects',
+                'company': 'ANOTIQ / Blockchain Based Crowdfunding',
+                'period': 'Project Experience',
+                'desc': 'Worked on digital product concepts, user flows, and interface structure for web-based products, combining UI design with functional development thinking.'
             }
         ],
         'testimonials': [
