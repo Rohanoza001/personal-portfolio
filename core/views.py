@@ -51,7 +51,7 @@ def portfolio(request):
         'profile': {
             'name': 'Rohan',
             'title': 'UI/UX Developer',
-            'tagline': 'Crafting premium digital experiences through clean code and modern design.',
+            'tagline': 'Designing intuitive digital experiences that blend thoughtful UX, clean interfaces, and modern development.',
             'bio': 'I build high-performance, visually stunning web applications with cutting-edge technologies. Passionate about clean code, modern aesthetics, and seamless user experiences.',
             'email': 'rohan@example.com',
             'phone': '+91 98765 43210',
