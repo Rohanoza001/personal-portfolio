@@ -940,6 +940,14 @@ body::before {
     display: block;
 }
 
+.github-skill-icon {
+    color: #181717;
+}
+
+.dark-theme .github-skill-icon {
+    color: #ffffff;
+}
+
 .photoshop-icon {
     display: grid;
     place-items: center;
