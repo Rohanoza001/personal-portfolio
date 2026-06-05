@@ -5,6 +5,7 @@ import urllib.request
 from django.conf import settings
 from django.http import JsonResponse
 from django.shortcuts import render
+from django.templatetags.static import static
 from django.views.decorators.http import require_POST
 
 from .models import ContactMessage, TestimonialSubmission
@@ -95,7 +96,7 @@ def portfolio(request):
                 'title': 'IRCTC Case Study',
                 'desc': 'A UX case study focused on improving the train booking journey with clearer navigation, smoother search flow, and more usable booking interactions.',
                 'tech': ['UX Research', 'Wireframing', 'Figma', 'Prototyping'],
-                'image': 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=900&q=80',
+                'image': static('images/irctc-case-study.png'),
                 'live_url': 'https://www.figma.com/design/BvY0xHE1jEa8wBJOf32AN5/Case-Study--IRCTC-?t=4VMCM0q2sYq6dp2X-0',
                 'github_url': ''
             },
@@ -103,7 +104,7 @@ def portfolio(request):
                 'title': 'Nike Case Study',
                 'desc': 'A product experience case study exploring a modern Nike shopping flow, visual hierarchy, product discovery, and conversion-focused UI decisions.',
                 'tech': ['UI Design', 'User Flow', 'Figma', 'Design System'],
-                'image': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+                'image': static('images/nike-case-study.png'),
                 'live_url': 'https://www.figma.com/design/YnoxHNZAMnG8c9cWTHUx47/Case-Study--Nike-?node-id=34-6&p=f&t=4VMCM0q2sYq6dp2X-0',
                 'github_url': ''
             }
