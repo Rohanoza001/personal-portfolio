@@ -1990,6 +1990,7 @@ body::before {
     display: flex;
     flex-direction: column;
     gap: 0.35rem;
+    margin-top: 1.35rem;
 }
 
 .cta-method-item {
