@@ -2169,6 +2169,10 @@ textarea.cta-form-input {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
+
+    .cta-contact-methods {
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
