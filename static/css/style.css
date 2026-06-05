@@ -2401,11 +2401,11 @@ textarea.cta-form-input {
     }
 
     .theme-btn {
-        right: 3.5rem;
+        display: none;
     }
 
     .nav-contact-link {
-        right: 6.35rem;
+        display: none;
     }
     
     .nav {
