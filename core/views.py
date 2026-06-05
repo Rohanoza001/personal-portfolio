@@ -237,15 +237,17 @@ def portfolio(request):
 def submit_contact(request):
     name = get_post_value(request, 'name')
     email = get_post_value(request, 'email')
+    phone = get_post_value(request, 'phone')
     subject = 'Contact form'
     message = get_post_value(request, 'message')
 
-    if not all([name, email, message]):
+    if not all([name, email, phone, message]):
         return JsonResponse({'ok': False, 'message': 'Please complete all fields.'}, status=400)
 
     contact_message = ContactMessage.objects.create(
         name=name,
         email=email,
+        phone=phone,
         subject=subject,
         message=message,
     )
@@ -254,6 +256,7 @@ def submit_contact(request):
         '<b>New contact message</b>\n\n'
         f'<b>Name:</b> {name}\n'
         f'<b>Email:</b> {email}\n'
+        f'<b>Mobile:</b> {phone}\n'
         f'<b>Message:</b>\n{message}'
     )
     email_message, html_email_message = build_notification_email(
@@ -262,6 +265,7 @@ def submit_contact(request):
         [
             ('Name', name),
             ('Email', email),
+            ('Mobile', phone),
         ],
         'Message',
         message,
