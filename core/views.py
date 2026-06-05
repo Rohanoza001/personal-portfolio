@@ -7,12 +7,77 @@ from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.templatetags.static import static
+from django.utils.html import escape
 from django.views.decorators.http import require_POST
 
 from .models import ContactMessage, TestimonialSubmission
 
 
-def send_notification_email(subject, message):
+def build_notification_email(title, subtitle, fields, message_label, message):
+    field_rows = ''.join(
+        (
+            '<tr>'
+            '<td style="padding: 14px 0; border-bottom: 1px solid #eeeeee;">'
+            f'<div style="font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #777777; font-weight: 700;">{escape(label)}</div>'
+            f'<div style="font-size: 17px; line-height: 1.5; color: #111111; font-weight: 700; margin-top: 4px;">{escape(value)}</div>'
+            '</td>'
+            '</tr>'
+        )
+        for label, value in fields
+    )
+
+    html_message = f"""
+    <!doctype html>
+    <html>
+    <body style="margin: 0; padding: 0; background: #f4f4f4; font-family: Arial, Helvetica, sans-serif;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background: #f4f4f4; padding: 36px 16px;">
+            <tr>
+                <td align="center">
+                    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width: 640px; background: #ffffff; border-radius: 24px; overflow: hidden; border: 1px solid #e8e8e8;">
+                        <tr>
+                            <td style="background: #050505; padding: 34px 34px 30px;">
+                                <div style="display: inline-block; width: 44px; height: 44px; line-height: 44px; text-align: center; border-radius: 50%; background: #ffffff; color: #050505; font-size: 20px; font-weight: 900; margin-bottom: 22px;">R</div>
+                                <div style="font-size: 12px; letter-spacing: 2.5px; text-transform: uppercase; color: #bdbdbd; font-weight: 700;">Rohan Oza Portfolio</div>
+                                <h1 style="margin: 10px 0 0; color: #ffffff; font-size: 34px; line-height: 1.1; font-weight: 900;">{escape(title)}</h1>
+                                <p style="margin: 14px 0 0; color: #d7d7d7; font-size: 16px; line-height: 1.6;">{escape(subtitle)}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 30px 34px 8px;">
+                                <table role="presentation" width="100%" cellspacing="0" cellpadding="0">
+                                    {field_rows}
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px 34px 34px;">
+                                <div style="font-size: 11px; letter-spacing: 1.8px; text-transform: uppercase; color: #777777; font-weight: 700;">{escape(message_label)}</div>
+                                <div style="margin-top: 10px; padding: 20px; border-radius: 18px; background: #0d0d0d; color: #ffffff; font-size: 16px; line-height: 1.7; white-space: pre-wrap;">{escape(message)}</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 20px 34px 30px; border-top: 1px solid #eeeeee; color: #777777; font-size: 13px; line-height: 1.5;">
+                                This email was sent automatically from your portfolio website.
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </body>
+    </html>
+    """
+
+    plain_message = '\n'.join(
+        [title, subtitle, '']
+        + [f'{label}: {value}' for label, value in fields]
+        + ['', f'{message_label}:', message]
+    )
+
+    return plain_message, html_message
+
+
+def send_notification_email(subject, message, html_message=None):
     recipient = getattr(settings, 'CONTACT_NOTIFICATION_EMAIL', '')
     sender = getattr(settings, 'DEFAULT_FROM_EMAIL', '')
     if not recipient or not sender:
@@ -25,6 +90,7 @@ def send_notification_email(subject, message):
             sender,
             [recipient],
             fail_silently=False,
+            html_message=html_message,
         )
     except Exception:
         return False
@@ -190,14 +256,22 @@ def submit_contact(request):
         f'<b>Email:</b> {email}\n'
         f'<b>Message:</b>\n{message}'
     )
-    email_message = (
-        'New contact message\n\n'
-        f'Name: {name}\n'
-        f'Email: {email}\n\n'
-        f'Message:\n{message}'
+    email_message, html_email_message = build_notification_email(
+        'New contact message',
+        'Someone filled out the Get in Touch form.',
+        [
+            ('Name', name),
+            ('Email', email),
+        ],
+        'Message',
+        message,
     )
     contact_message.telegram_sent = send_telegram_message(telegram_message)
-    contact_message.email_sent = send_notification_email('New portfolio contact message', email_message)
+    contact_message.email_sent = send_notification_email(
+        'New portfolio contact message',
+        email_message,
+        html_email_message,
+    )
     contact_message.save(update_fields=['telegram_sent', 'email_sent'])
 
     return JsonResponse({'ok': True, 'message': 'Message sent successfully.'})
@@ -238,16 +312,24 @@ def submit_testimonial(request):
         f'<b>Rating:</b> {rating_value}/5\n\n'
         f'<b>Feedback:</b>\n{feedback}'
     )
-    email_message = (
-        'New testimonial\n\n'
-        f'Name: {name}\n'
-        f'Designation: {designation}\n'
-        f'Company: {company}\n'
-        f'Rating: {rating_value}/5\n\n'
-        f'Feedback:\n{feedback}'
+    email_message, html_email_message = build_notification_email(
+        'New testimonial',
+        'Someone shared their experience from your portfolio.',
+        [
+            ('Name', name),
+            ('Designation', designation),
+            ('Company', company),
+            ('Rating', f'{rating_value}/5'),
+        ],
+        'Feedback',
+        feedback,
     )
     testimonial.telegram_sent = send_telegram_message(telegram_message)
-    testimonial.email_sent = send_notification_email('New portfolio testimonial', email_message)
+    testimonial.email_sent = send_notification_email(
+        'New portfolio testimonial',
+        email_message,
+        html_email_message,
+    )
     testimonial.save(update_fields=['telegram_sent', 'email_sent'])
 
     return JsonResponse({'ok': True, 'message': 'Feedback sent successfully.'})
