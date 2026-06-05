@@ -49,7 +49,7 @@ def get_post_value(request, key):
 def portfolio(request):
     context = {
         'profile': {
-            'name': 'Rohan',
+            'name': 'Rohan Oza',
             'title': 'UI/UX Developer',
             'tagline': 'Designing intuitive digital experiences that blend thoughtful UX, clean interfaces, and modern development.',
             'bio': 'I build high-performance, visually stunning web applications with cutting-edge technologies. Passionate about clean code, modern aesthetics, and seamless user experiences.',
