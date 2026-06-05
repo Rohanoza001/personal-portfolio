@@ -1577,7 +1577,7 @@ body::before {
    CLIENT TESTIMONIALS
    ========================================== */
 .testimonials-section {
-    padding: 8rem 0 2rem;
+    padding: 8rem 0 4rem;
     position: relative;
     overflow: hidden;
     scroll-margin-top: 6.5rem;
@@ -1895,7 +1895,7 @@ body::before {
 
 @media (max-width: 768px) {
     .testimonials-section {
-        padding: 5rem 0 1rem;
+        padding: 5rem 0 3rem;
     }
 
     .testimonials-heading,
@@ -1923,7 +1923,7 @@ body::before {
 .cta-contact-section {
     background-color: var(--bg-base);
     color: var(--text-primary);
-    padding: 2rem 0 8rem 0;
+    padding: 4rem 0 8rem 0;
     position: relative;
     z-index: 10;
 }
