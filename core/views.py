@@ -118,6 +118,12 @@ def portfolio(request):
         ],
         'experiences': [
             {
+                'role': 'Real Estate Agent',
+                'company': 'MN Real Estate',
+                'period': 'Dec 2025 - Present',
+                'desc': 'Working with clients on property discovery, site visits, lead follow-ups, and real estate sales support while helping buyers find suitable property options.'
+            },
+            {
                 'role': 'Data Analyst',
                 'company': 'Rezide Solution',
                 'period': 'Dec 2023 - Apr 2025',
