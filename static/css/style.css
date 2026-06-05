@@ -2376,47 +2376,30 @@ textarea.cta-form-input {
         right: 6.35rem;
     }
     
-    body.mobile-menu-open {
-        overflow: hidden;
-    }
-
     .nav {
         position: fixed;
-        top: 0;
-        right: 0;
-        left: auto;
-        width: min(82vw, 360px);
-        height: 100dvh;
+        top: 5.25rem;
+        left: 10px;
+        right: 10px;
+        width: auto;
+        height: auto;
         background: color-mix(in srgb, var(--header-bg) 94%, transparent);
-        padding: 6.5rem 1.35rem 1.35rem;
-        transform: translateX(100%);
+        padding: 0.85rem;
+        transform: translateY(-14px) scale(0.96);
+        transform-origin: top center;
         opacity: 0;
         visibility: hidden;
-        transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
+        transition: transform 0.32s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.24s ease, visibility 0.24s ease;
         border: 1px solid var(--border-color);
-        border-right: 0;
-        border-radius: 28px 0 0 28px;
-        box-shadow: -22px 0 60px rgba(0, 0, 0, 0.28);
+        border-radius: 24px;
+        box-shadow: 0 22px 60px rgba(0, 0, 0, 0.18);
         backdrop-filter: blur(24px);
         -webkit-backdrop-filter: blur(24px);
-        z-index: 1002;
-    }
-
-    .nav::before {
-        content: 'Menu';
-        position: absolute;
-        top: 2rem;
-        left: 1.35rem;
-        font-family: var(--font-heading);
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--text-muted);
+        z-index: 999;
     }
     
     .nav.active {
-        transform: translateX(0);
+        transform: translateY(0) scale(1);
         opacity: 1;
         visibility: visible;
     }

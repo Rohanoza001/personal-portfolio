@@ -137,13 +137,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const closeMobileMenu = () => {
             mobileMenuBtn.classList.remove('active');
             mainNav.classList.remove('active');
-            document.body.classList.remove('mobile-menu-open');
         };
 
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenuBtn.classList.toggle('active');
             mainNav.classList.toggle('active');
-            document.body.classList.toggle('mobile-menu-open', mainNav.classList.contains('active'));
         });
 
         // Close mobile menu on clicking navigation links
