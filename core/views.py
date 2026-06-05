@@ -92,28 +92,20 @@ def portfolio(request):
         ],
         'projects': [
             {
-                'title': 'Homebound Real Estate',
-                'desc': 'A premium real estate marketplace featuring interactive property cards, advanced filtering, and instant lead capture.',
-                'tech': ['Django', 'Python', 'SQLite', 'Vanilla CSS'],
-                'image': 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800&q=80',
-                'live_url': '#',
-                'github_url': '#'
+                'title': 'IRCTC Case Study',
+                'desc': 'A UX case study focused on improving the train booking journey with clearer navigation, smoother search flow, and more usable booking interactions.',
+                'tech': ['UX Research', 'Wireframing', 'Figma', 'Prototyping'],
+                'image': 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=900&q=80',
+                'live_url': 'https://www.figma.com/design/BvY0xHE1jEa8wBJOf32AN5/Case-Study--IRCTC-?t=4VMCM0q2sYq6dp2X-0',
+                'github_url': ''
             },
             {
-                'title': 'Zenith Analytics Dashboard',
-                'desc': 'A beautiful dashboard utilizing glassmorphism styling, interactive charts, and automated daily data reports.',
-                'tech': ['React', 'Chart.js', 'Vanilla CSS', 'Node.js'],
-                'image': 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80',
-                'live_url': '#',
-                'github_url': '#'
-            },
-            {
-                'title': 'Scribe AI Writing Assistant',
-                'desc': 'An AI-powered application that drafts articles, posts, and marketing copy using OpenAI integration.',
-                'tech': ['Next.js', 'OpenAI API', 'CSS Modules'],
-                'image': 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-                'live_url': '#',
-                'github_url': '#'
+                'title': 'Nike Case Study',
+                'desc': 'A product experience case study exploring a modern Nike shopping flow, visual hierarchy, product discovery, and conversion-focused UI decisions.',
+                'tech': ['UI Design', 'User Flow', 'Figma', 'Design System'],
+                'image': 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80',
+                'live_url': 'https://www.figma.com/design/YnoxHNZAMnG8c9cWTHUx47/Case-Study--Nike-?node-id=34-6&p=f&t=4VMCM0q2sYq6dp2X-0',
+                'github_url': ''
             }
         ],
         'experiences': [

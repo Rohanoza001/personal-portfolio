@@ -266,11 +266,13 @@
                             </div>
                             <div class="project-modern-links">
                                 <a href="{{ project.live_url }}" class="project-modern-btn" target="_blank" rel="noopener">
-                                    Explore project <i class="fa-solid fa-arrow-right"></i>
+                                    Open case study <i class="fa-solid fa-arrow-right"></i>
                                 </a>
+                                {% if project.github_url %}
                                 <a href="{{ project.github_url }}" class="project-modern-code" target="_blank" rel="noopener" aria-label="View {{ project.title }} source code">
                                     <i class="fa-brands fa-github"></i> Source
                                 </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
