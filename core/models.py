@@ -8,6 +8,7 @@ class ContactMessage(models.Model):
     message = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     telegram_sent = models.BooleanField(default=False)
+    email_sent = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']
@@ -24,6 +25,7 @@ class TestimonialSubmission(models.Model):
     feedback = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     telegram_sent = models.BooleanField(default=False)
+    email_sent = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['-created_at']

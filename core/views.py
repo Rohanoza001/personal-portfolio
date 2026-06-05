@@ -3,12 +3,33 @@ import urllib.parse
 import urllib.request
 
 from django.conf import settings
+from django.core.mail import send_mail
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.templatetags.static import static
 from django.views.decorators.http import require_POST
 
 from .models import ContactMessage, TestimonialSubmission
+
+
+def send_notification_email(subject, message):
+    recipient = getattr(settings, 'CONTACT_NOTIFICATION_EMAIL', '')
+    sender = getattr(settings, 'DEFAULT_FROM_EMAIL', '')
+    if not recipient or not sender:
+        return False
+
+    try:
+        sent_count = send_mail(
+            subject,
+            message,
+            sender,
+            [recipient],
+            fail_silently=False,
+        )
+    except Exception:
+        return False
+
+    return sent_count > 0
 
 
 def send_telegram_message(message):
@@ -169,8 +190,15 @@ def submit_contact(request):
         f'<b>Email:</b> {email}\n'
         f'<b>Message:</b>\n{message}'
     )
+    email_message = (
+        'New contact message\n\n'
+        f'Name: {name}\n'
+        f'Email: {email}\n\n'
+        f'Message:\n{message}'
+    )
     contact_message.telegram_sent = send_telegram_message(telegram_message)
-    contact_message.save(update_fields=['telegram_sent'])
+    contact_message.email_sent = send_notification_email('New portfolio contact message', email_message)
+    contact_message.save(update_fields=['telegram_sent', 'email_sent'])
 
     return JsonResponse({'ok': True, 'message': 'Message sent successfully.'})
 
@@ -210,7 +238,16 @@ def submit_testimonial(request):
         f'<b>Rating:</b> {rating_value}/5\n\n'
         f'<b>Feedback:</b>\n{feedback}'
     )
+    email_message = (
+        'New testimonial\n\n'
+        f'Name: {name}\n'
+        f'Designation: {designation}\n'
+        f'Company: {company}\n'
+        f'Rating: {rating_value}/5\n\n'
+        f'Feedback:\n{feedback}'
+    )
     testimonial.telegram_sent = send_telegram_message(telegram_message)
-    testimonial.save(update_fields=['telegram_sent'])
+    testimonial.email_sent = send_notification_email('New portfolio testimonial', email_message)
+    testimonial.save(update_fields=['telegram_sent', 'email_sent'])
 
     return JsonResponse({'ok': True, 'message': 'Feedback sent successfully.'})
