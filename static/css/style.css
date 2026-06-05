@@ -720,34 +720,6 @@ body::before {
     object-position: center 18%;
 }
 
-.portrait-status {
-    position: absolute;
-    left: 1rem;
-    bottom: 1rem;
-    z-index: 2;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.55rem 0.85rem;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 50px;
-    background: rgba(10, 10, 10, 0.62);
-    color: #fff;
-    font-family: var(--font-heading);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    backdrop-filter: blur(10px);
-}
-
-.portrait-status span {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--accent-color);
-    box-shadow: 0 0 0 4px rgba(230, 57, 70, 0.18);
-}
-
 .floating-skill {
     position: absolute;
     z-index: 4;
