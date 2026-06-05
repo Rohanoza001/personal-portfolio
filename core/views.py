@@ -139,7 +139,7 @@ def portfolio(request):
         'profile': {
             'name': 'Rohan Oza',
             'title': 'UI/UX Developer',
-            'tagline': 'Designing intuitive digital experiences that blend thoughtful UX, clean interfaces, and modern development.',
+            'tagline': 'A fresher UI/UX designer with strong design fundamentals, good learning ability, and a passion for creating clean, user-friendly digital experiences.',
             'bio': 'I build high-performance, visually stunning web applications with cutting-edge technologies. Passionate about clean code, modern aesthetics, and seamless user experiences.',
             'email': 'rohan@example.com',
             'phone': '+91 98765 43210',
