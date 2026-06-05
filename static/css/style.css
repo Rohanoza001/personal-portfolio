@@ -2328,6 +2328,16 @@ textarea.cta-form-input {
         --container-padding: 1.5rem;
         --section-padding: 4rem 0;
     }
+
+    .header {
+        top: 10px;
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .header.scrolled {
+        top: 10px;
+    }
     
     .hero-title {
         font-size: 3rem;
@@ -2361,28 +2371,47 @@ textarea.cta-form-input {
         right: 6.35rem;
     }
     
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+
     .nav {
         position: fixed;
-        top: 5.6rem;
-        left: var(--container-padding);
-        right: var(--container-padding);
-        width: auto;
-        height: auto;
-        background: var(--header-bg);
-        padding: 1rem;
-        transform: translateY(-16px) scale(0.98);
+        top: 0;
+        right: 0;
+        left: auto;
+        width: min(82vw, 360px);
+        height: 100dvh;
+        background: color-mix(in srgb, var(--header-bg) 94%, transparent);
+        padding: 6.5rem 1.35rem 1.35rem;
+        transform: translateX(100%);
         opacity: 0;
         visibility: hidden;
         transition: transform var(--transition-normal), opacity var(--transition-normal), visibility var(--transition-normal);
         border: 1px solid var(--border-color);
-        border-radius: 22px;
-        box-shadow: var(--shadow-lg);
+        border-right: 0;
+        border-radius: 28px 0 0 28px;
+        box-shadow: -22px 0 60px rgba(0, 0, 0, 0.28);
         backdrop-filter: blur(24px);
-        z-index: 999;
+        -webkit-backdrop-filter: blur(24px);
+        z-index: 1002;
+    }
+
+    .nav::before {
+        content: 'Menu';
+        position: absolute;
+        top: 2rem;
+        left: 1.35rem;
+        font-family: var(--font-heading);
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
     }
     
     .nav.active {
-        transform: translateY(0) scale(1);
+        transform: translateX(0);
         opacity: 1;
         visibility: visible;
     }
@@ -2399,8 +2428,30 @@ textarea.cta-form-input {
     .nav-link {
         display: flex;
         justify-content: space-between;
-        font-size: 1rem;
-        padding: 0.9rem 1rem;
+        align-items: center;
+        font-size: 1.05rem;
+        padding: 1rem 1.1rem;
+        border: 1px solid transparent;
+        border-radius: 16px;
+    }
+
+    .nav-link::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent-color);
+        opacity: 0;
+        transition: opacity var(--transition-fast);
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+        border-color: var(--border-color);
+    }
+
+    .nav-link.active::before {
+        opacity: 1;
     }
 
     .mobile-menu-toggle.active .bar:nth-child(1) {
