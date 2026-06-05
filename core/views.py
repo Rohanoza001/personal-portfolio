@@ -118,22 +118,28 @@ def portfolio(request):
         ],
         'experiences': [
             {
-                'role': 'UI/UX Developer',
+                'role': 'Data Analyst',
                 'company': 'Rezide Solution',
-                'period': 'Mumbai, Maharashtra, India',
-                'desc': 'Designing clean, responsive web experiences with a focus on user-friendly layouts, modern interface patterns, and practical product flows.'
+                'period': 'Dec 2023 - Apr 2025',
+                'desc': 'Worked on database management systems, organizing and maintaining structured data while supporting analysis, reporting, and smooth operational workflows.'
             },
             {
-                'role': 'UI/UX & Frontend Contributor',
-                'company': 'Open House Main',
-                'period': 'Project Experience',
-                'desc': 'Led the design and development of a real estate website with property listing pages, search filters, lead capture flows, and responsive user journeys.'
+                'role': 'Flutter Developer',
+                'company': 'Patel Brothers Services & Engineering Pvt. Ltd.',
+                'period': 'May 2024 - Jul 2024',
+                'desc': 'Developed and maintained mobile application interfaces with a focus on user-friendly screens, Firebase integration, and reliable app functionality.'
             },
             {
-                'role': 'Web & Product Design Projects',
-                'company': 'ANOTIQ / Blockchain Based Crowdfunding',
-                'period': 'Project Experience',
-                'desc': 'Worked on digital product concepts, user flows, and interface structure for web-based products, combining UI design with functional development thinking.'
+                'role': 'Sales And Marketing Intern',
+                'company': 'Patel Brothers Services & Engineering Pvt. Ltd.',
+                'period': 'Jul 2023 - Sep 2023',
+                'desc': 'Supported marketing outreach for Kerodex, preparing client communication and promoting the product across manufacturing, healthcare, and engineering industries.'
+            },
+            {
+                'role': 'Technical Support Engineer',
+                'company': 'Multisoft India',
+                'period': 'Feb 2021 - Jul 2021',
+                'desc': 'Assisted clients with software and hardware support, troubleshooting technical issues, and improving the reliability of day-to-day systems.'
             }
         ],
         'testimonials': [
