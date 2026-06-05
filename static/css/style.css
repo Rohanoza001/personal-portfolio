@@ -987,7 +987,7 @@ body::before {
 
 @media (max-width: 992px) {
     .skills-circle-grid-all {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 2rem 1rem;
     }
     
@@ -1008,33 +1008,39 @@ body::before {
 
 @media (max-width: 768px) {
     .skills-circle-grid-all {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2rem 1rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.6rem 0.65rem;
+        width: 100%;
+    }
+
+    .skill-circle-item {
+        min-width: 0;
     }
 }
 
 @media (max-width: 480px) {
     .skills-circle-grid-all {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem 0.8rem;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1.25rem 0.45rem;
     }
     
     .skill-circle-wrapper {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
     
     .skill-circle-content {
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
     }
     
     .skill-circle-icon {
-        font-size: 1.2rem;
+        font-size: 1rem;
     }
     
     .skill-circle-name {
-        font-size: 0.8rem;
+        font-size: 0.68rem;
+        overflow-wrap: anywhere;
     }
 }
 
