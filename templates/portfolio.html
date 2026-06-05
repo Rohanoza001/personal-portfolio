@@ -1,0 +1,445 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ profile.name }} | Portfolio</title>
+    <meta name="description" content="{{ profile.tagline }}">
+    <link rel="icon" href="{% static 'images/favicon.svg' %}" type="image/svg+xml">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body class="dark-theme">
+    <!-- Page Loader -->
+    <div class="page-loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- SVG Gradient Definition for Skill Circles -->
+    <svg width="0" height="0" style="position: absolute;">
+        <defs>
+            <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#e63946;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#d62839;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+
+    <!-- Background Canvas for Particles -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Glassmorphic Header / Navbar -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#hero" class="logo" id="nav-logo">
+                <span class="logo-mark">R</span>
+                <span class="logo-name">{{ profile.name }}</span>
+            </a>
+            
+            <nav class="nav" id="main-nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="#contact" class="nav-contact-link">Let's talk <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark/light theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <span class="hero-badge">Welcome to my portfolio</span>
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">{{ profile.name }}</span>
+                    </h1>
+                    <h2 class="hero-subtitle">{{ profile.title }}</h2>
+                    <p class="hero-description">{{ profile.tagline }}</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary" id="btn-hero-contact">
+                            Get In Touch <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#projects" class="btn btn-secondary" id="btn-hero-projects">
+                            View My Work
+                        </a>
+                    </div>
+                    <div class="hero-socials">
+                        <a href="{{ profile.github }}" target="_blank" rel="noopener" aria-label="GitHub" class="social-icon"><i class="fa-brands fa-github"></i></a>
+                        <a href="{{ profile.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="{{ profile.twitter }}" target="_blank" rel="noopener" aria-label="Twitter" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-portrait-stage" aria-label="Developer portrait with core skills">
+                        <div class="hero-portrait-glow"></div>
+                        <div class="hero-portrait-frame">
+                            <img src="{% static 'images/developer-portrait.png' %}" alt="Full-stack developer portrait">
+                            <span class="portrait-status"><span></span> Available for projects</span>
+                        </div>
+                        <span class="floating-skill floating-skill-react" aria-label="React"><i class="fa-brands fa-react"></i></span>
+                        <span class="floating-skill floating-skill-python" aria-label="Python"><i class="fa-brands fa-python"></i></span>
+                        <span class="floating-skill floating-skill-js" aria-label="JavaScript"><i class="fa-brands fa-js"></i></span>
+                        <span class="floating-skill floating-skill-figma" aria-label="Figma"><i class="fa-brands fa-figma"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-down-indicator">
+                <a href="#about" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
+            </div>
+        </section>
+
+        <!-- About & Skills Section -->
+        <section id="about" class="about-section">
+            <div class="container">
+                <!-- New Modern Header -->
+                <div class="about-header-modern">
+                    <div class="about-intro">
+                        <div class="about-label">
+                            <span class="label-dot"></span>
+                            <span class="label-text">Get to know me</span>
+                        </div>
+                        <h2 class="about-main-title">
+                            My <span class="title-highlight">Skills</span>
+                        </h2>
+                        <p class="about-lead">{{ profile.bio }}</p>
+                    </div>
+                </div>
+
+                <!-- Skills Section with Circular Icons -->
+                <div class="skills-section-wrapper">
+                    <div class="skills-circle-grid-all">
+                        {% for skill_group in skills %}
+                            {% for skill in skill_group.items %}
+                            <div class="skill-circle-item">
+                                <div class="skill-circle-wrapper">
+                                    <div class="skill-circle-bg">
+                                        <div class="skill-circle-content">
+                                            <div class="skill-circle-icon" data-skill="{{ skill.name }}">
+                                                {% if skill.name == "HTML5 & CSS3" or skill.name == "HTML" or skill.name == "CSS" %}
+                                                    <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
+                                                {% elif skill.name == "JavaScript (ES6+)" or skill.name == "JavaScript" %}
+                                                    <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
+                                                {% elif skill.name == "React / Next.js" or skill.name == "React" %}
+                                                    <i class="fa-brands fa-react" style="color: #61DAFB;"></i>
+                                                {% elif skill.name == "TypeScript" %}
+                                                    <i class="fa-brands fa-js" style="color: #3178C6;"></i>
+                                                {% elif skill.name == "Python" %}
+                                                    <i class="fa-brands fa-python" style="color: #3776AB;"></i>
+                                                {% elif skill.name == "Django" %}
+                                                    <i class="fa-solid fa-server" style="color: #092E20;"></i>
+                                                {% elif skill.name == "Node.js / Express" or skill.name == "Node.js" %}
+                                                    <i class="fa-brands fa-node" style="color: #339933;"></i>
+                                                {% elif skill.name == "SQL & Databases" or skill.name == "SQL" %}
+                                                    <i class="fa-solid fa-database" style="color: #4479A1;"></i>
+                                                {% elif skill.name == "Git & GitHub" or skill.name == "Git" %}
+                                                    <i class="fa-brands fa-git-alt" style="color: #F05032;"></i>
+                                                {% elif skill.name == "Figma (UI/UX)" or skill.name == "Figma" %}
+                                                    <i class="fa-brands fa-figma" style="color: #F24E1E;"></i>
+                                                {% else %}
+                                                    <i class="fa-solid fa-code" style="color: #7000ff;"></i>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-circle-info">
+                                    <span class="skill-circle-name">{{ skill.name }}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="experience-section">
+            <div class="container">
+                <div class="experience-heading">
+                    <div>
+                        <span class="experience-eyebrow"><span></span> Career journey</span>
+                        <h2 class="experience-title">Work<br><span>experience.</span></h2>
+                    </div>
+                    <p class="experience-heading-copy">A track record of building thoughtful products, improving performance, and helping teams ship better work.</p>
+                </div>
+                
+                <div class="experience-grid">
+                    {% for exp in experiences %}
+                    <div class="experience-card">
+                        <div class="experience-card-header">
+                            <span class="experience-number">0{{ forloop.counter }}</span>
+                            <span class="experience-date">{{ exp.period }}</span>
+                        </div>
+                        <div class="experience-card-body">
+                            <span class="experience-role-label">Role / 0{{ forloop.counter }}</span>
+                            <h3 class="experience-role">{{ exp.role }}</h3>
+                            <h4 class="experience-company">
+                                <i class="fa-solid fa-building"></i> {{ exp.company }}
+                            </h4>
+                            <p class="experience-desc">{{ exp.desc }}</p>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section id="projects" class="projects-section">
+            <div class="container">
+                <div class="projects-heading">
+                    <div class="projects-heading-copy">
+                        <span class="projects-eyebrow"><span></span> Selected work</span>
+                        <h2 class="projects-title">Recent projects,<br><span>built to matter.</span></h2>
+                    </div>
+                    <div class="projects-heading-meta">
+                        <span class="projects-count">{{ projects|length|stringformat:"02d" }} / CASE STUDIES</span>
+                        <p>A focused selection of products where thoughtful design meets dependable engineering.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="projects-modern-grid">
+                {% for project in projects %}
+                <article class="project-modern-card">
+                    <div class="project-modern-image">
+                        <img src="{{ project.image }}" alt="{{ project.title }}" loading="lazy">
+                        <div class="project-image-meta">
+                            <span>0{{ forloop.counter }}</span>
+                        </div>
+                    </div>
+                    <div class="project-modern-content">
+                        <div class="project-modern-content-inner">
+                            <span class="project-modern-number">PROJECT / 0{{ forloop.counter }}</span>
+                            <h3 class="project-modern-title">{{ project.title }}</h3>
+                            <p class="project-modern-desc">{{ project.desc }}</p>
+                            <div class="project-modern-tags">
+                                {% for tag in project.tech %}
+                                <span class="project-tag">{{ tag }}</span>
+                                {% endfor %}
+                            </div>
+                            <div class="project-modern-links">
+                                <a href="{{ project.live_url }}" class="project-modern-btn" target="_blank" rel="noopener">
+                                    Explore project <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                                <a href="{{ project.github_url }}" class="project-modern-code" target="_blank" rel="noopener" aria-label="View {{ project.title }} source code">
+                                    <i class="fa-brands fa-github"></i> Source
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>
+        </section>
+
+        <!-- Client Testimonials -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="container">
+                <div class="testimonials-heading">
+                    <div>
+                        <span class="testimonials-eyebrow"><span></span> Client stories</span>
+                        <h2 class="testimonials-title">Kind words,<br><span>real outcomes.</span></h2>
+                    </div>
+                    <p class="testimonials-heading-copy">Feedback from people I have partnered with to turn ambitious ideas into thoughtful digital products.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    {% for testimonial in testimonials %}
+                    <article class="testimonial-card">
+                        <div class="testimonial-top">
+                            <span class="testimonial-number">0{{ forloop.counter }}</span>
+                            <div class="testimonial-stars" aria-label="5 out of 5 stars">
+                                {% for star in "12345" %}<i class="fa-solid fa-star"></i>{% endfor %}
+                            </div>
+                        </div>
+                        <blockquote>“{{ testimonial.quote }}”</blockquote>
+                        <div class="testimonial-client">
+                            <span class="testimonial-avatar">{{ testimonial.initials }}</span>
+                            <div>
+                                <strong>{{ testimonial.name }}</strong>
+                                <span>{{ testimonial.role }} · {{ testimonial.company }}</span>
+                            </div>
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+
+                <div class="feedback-panel" id="feedback">
+                    <div class="feedback-copy">
+                        <span class="feedback-label">Worked with me?</span>
+                        <h3>Share your experience.</h3>
+                        <p>Your feedback helps me improve and helps future clients know what collaborating together feels like.</p>
+                    </div>
+                    <form class="feedback-form" id="feedback-form" method="POST" action="{% url 'submit_testimonial' %}">
+                        {% csrf_token %}
+                        <div class="feedback-form-row">
+                            <div>
+                                <label for="feedback-name">Name</label>
+                                <input type="text" id="feedback-name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div>
+                                <label for="feedback-designation">Designation</label>
+                                <input type="text" id="feedback-designation" name="designation" placeholder="Product Lead" required>
+                            </div>
+                        </div>
+                        <div class="feedback-form-row">
+                            <div>
+                                <label for="feedback-company">Company name</label>
+                                <input type="text" id="feedback-company" name="company" placeholder="Your company" required>
+                            </div>
+                            <fieldset class="feedback-rating">
+                                <legend>Rating</legend>
+                                <div class="feedback-rating-stars">
+                                    {% for value in "54321" %}
+                                    <input type="radio" id="feedback-star-{{ value }}" name="feedback-rating" value="{{ value }}" {% if value == "5" %}required{% endif %}>
+                                    <label for="feedback-star-{{ value }}" aria-label="{{ value }} star rating"><i class="fa-solid fa-star"></i></label>
+                                    {% endfor %}
+                                </div>
+                            </fieldset>
+                        </div>
+                        <label for="feedback-message">Feedback</label>
+                        <textarea id="feedback-message" name="feedback" rows="3" placeholder="Tell me about your experience..." required></textarea>
+                        <button type="submit">Send feedback <i class="fa-solid fa-arrow-right"></i></button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="cta-contact-section">
+            <div class="container">
+                <div class="cta-contact-grid">
+                    <!-- Left Column: Header + Contact Info -->
+                    <div class="cta-contact-left">
+                        <div class="cta-contact-header">
+                            <div class="cta-badge-wrapper">
+                                <span class="cta-line"></span>
+                                <span class="cta-badge-text">GET IN TOUCH</span>
+                            </div>
+                            <h2 class="cta-contact-title">
+                                LET'S BUILD<br>
+                                <span class="cta-title-red">SOMETHING.</span>
+                            </h2>
+                        </div>
+
+                        <div class="cta-contact-methods">
+                            <div class="cta-method-item">
+                                <div class="cta-icon-circle">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="cta-method-info">
+                                    <span class="cta-method-label">EMAIL</span>
+                                    <a href="mailto:{{ profile.email }}" class="cta-method-value">{{ profile.email }}</a>
+                                </div>
+                            </div>
+                            <div class="cta-method-item">
+                                <div class="cta-icon-circle">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="cta-method-info">
+                                    <span class="cta-method-label">PHONE</span>
+                                    <span class="cta-method-value">{{ profile.phone }}</span>
+                                </div>
+                            </div>
+                            <div class="cta-method-item">
+                                <div class="cta-icon-circle">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div class="cta-method-info">
+                                    <span class="cta-method-label">BASED IN</span>
+                                    <span class="cta-method-value">{{ profile.location }} — Open to remote</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Contact Form -->
+                    <div class="cta-contact-right">
+                        <form id="contact-form" class="cta-form" method="POST" action="{% url 'submit_contact' %}" novalidate>
+                            {% csrf_token %}
+                            <div class="cta-form-row">
+                                <div class="cta-form-group">
+                                    <label for="contact-name" class="cta-form-label">NAME</label>
+                                    <input type="text" id="contact-name" name="name" class="cta-form-input" placeholder="Your name" required>
+                                    <span class="error-msg" id="name-error">Please enter your name</span>
+                                </div>
+                                <div class="cta-form-group">
+                                    <label for="contact-email" class="cta-form-label">EMAIL</label>
+                                    <input type="email" id="contact-email" name="email" class="cta-form-input" placeholder="your@email.com" required>
+                                    <span class="error-msg" id="email-error">Please enter a valid email</span>
+                                </div>
+                            </div>
+                            <div class="cta-form-group">
+                                <label for="contact-message" class="cta-form-label">MESSAGE</label>
+                                <textarea id="contact-message" name="message" rows="5" class="cta-form-input" placeholder="Tell me about your project..." required></textarea>
+                                <span class="error-msg" id="message-error">Please enter a message</span>
+                            </div>
+                            <button type="submit" class="cta-submit-btn" id="btn-submit-contact">
+                                SEND MESSAGE
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="copyright">&copy; <span id="current-year"></span> {{ profile.name }}. All rights reserved.</p>
+            <div class="footer-socials">
+                <a href="{{ profile.github }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="{{ profile.linkedin }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="{{ profile.twitter }}" target="_blank" rel="noopener" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Toast Notification -->
+    <div id="toast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-content">
+            <i class="fa-solid fa-circle-check toast-icon"></i>
+            <div class="toast-message">
+                <h4 class="toast-title">Message Sent!</h4>
+                <p class="toast-body">Thank you for reaching out. I'll get back to you soon.</p>
+            </div>
+        </div>
+        <button class="toast-close" id="toast-close-btn" aria-label="Close notification">&times;</button>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="{% static 'js/main.js' %}?v=20260605-telegram-forms-2"></script>
+</body>
+</html>
