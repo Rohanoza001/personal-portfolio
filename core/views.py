@@ -63,30 +63,30 @@ def portfolio(request):
         },
         'skills': [
             {
-                'category': 'Frontend',
+                'category': 'Frontend Foundations',
                 'items': [
-                    {'name': 'HTML5 & CSS3', 'level': 95},
-                    {'name': 'JavaScript (ES6+)', 'level': 90},
-                    {'name': 'React / Next.js', 'level': 85},
-                    {'name': 'TypeScript', 'level': 80},
+                    {'name': 'HTML', 'level': 95},
+                    {'name': 'CSS', 'level': 92},
+                    {'name': 'JavaScript', 'level': 85},
+                    {'name': 'Responsive Design', 'level': 90},
                 ]
             },
             {
-                'category': 'Backend',
+                'category': 'Design Tools',
                 'items': [
-                    {'name': 'Python', 'level': 90},
-                    {'name': 'Django', 'level': 85},
-                    {'name': 'Node.js / Express', 'level': 75},
-                    {'name': 'SQL & Databases', 'level': 80},
+                    {'name': 'Figma', 'level': 92},
+                    {'name': 'Photoshop', 'level': 82},
+                    {'name': 'Stitch', 'level': 78},
+                    {'name': 'Wireframing', 'level': 88},
                 ]
             },
             {
-                'category': 'Tools & Design',
+                'category': 'Workflow',
                 'items': [
-                    {'name': 'Git & GitHub', 'level': 90},
-                    {'name': 'Figma (UI/UX)', 'level': 85},
-                    {'name': 'Docker', 'level': 70},
-                    {'name': 'AWS / Deployment', 'level': 75},
+                    {'name': 'GitHub', 'level': 86},
+                    {'name': 'Prototyping', 'level': 88},
+                    {'name': 'User Research', 'level': 80},
+                    {'name': 'Design Systems', 'level': 84},
                 ]
             }
         ],

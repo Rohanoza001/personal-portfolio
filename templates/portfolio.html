@@ -144,8 +144,10 @@
                                     <div class="skill-circle-bg">
                                         <div class="skill-circle-content">
                                             <div class="skill-circle-icon" data-skill="{{ skill.name }}">
-                                                {% if skill.name == "HTML5 & CSS3" or skill.name == "HTML" or skill.name == "CSS" %}
+                                                {% if skill.name == "HTML5 & CSS3" or skill.name == "HTML" %}
                                                     <i class="fa-brands fa-html5" style="color: #E34F26;"></i>
+                                                {% elif skill.name == "CSS" %}
+                                                    <i class="fa-brands fa-css3-alt" style="color: #1572B6;"></i>
                                                 {% elif skill.name == "JavaScript (ES6+)" or skill.name == "JavaScript" %}
                                                     <i class="fa-brands fa-js" style="color: #F7DF1E;"></i>
                                                 {% elif skill.name == "React / Next.js" or skill.name == "React" %}
@@ -160,10 +162,24 @@
                                                     <i class="fa-brands fa-node" style="color: #339933;"></i>
                                                 {% elif skill.name == "SQL & Databases" or skill.name == "SQL" %}
                                                     <i class="fa-solid fa-database" style="color: #4479A1;"></i>
-                                                {% elif skill.name == "Git & GitHub" or skill.name == "Git" %}
-                                                    <i class="fa-brands fa-git-alt" style="color: #F05032;"></i>
+                                                {% elif skill.name == "Git & GitHub" or skill.name == "Git" or skill.name == "GitHub" %}
+                                                    <i class="fa-brands fa-github" style="color: #181717;"></i>
                                                 {% elif skill.name == "Figma (UI/UX)" or skill.name == "Figma" %}
                                                     <i class="fa-brands fa-figma" style="color: #F24E1E;"></i>
+                                                {% elif skill.name == "Photoshop" %}
+                                                    <i class="fa-solid fa-image" style="color: #31A8FF;"></i>
+                                                {% elif skill.name == "Stitch" %}
+                                                    <i class="fa-solid fa-wand-magic-sparkles" style="color: #7C3AED;"></i>
+                                                {% elif skill.name == "Responsive Design" %}
+                                                    <i class="fa-solid fa-mobile-screen-button" style="color: #10B981;"></i>
+                                                {% elif skill.name == "Wireframing" %}
+                                                    <i class="fa-solid fa-pen-ruler" style="color: #F59E0B;"></i>
+                                                {% elif skill.name == "Prototyping" %}
+                                                    <i class="fa-solid fa-layer-group" style="color: #EC4899;"></i>
+                                                {% elif skill.name == "User Research" %}
+                                                    <i class="fa-solid fa-users-viewfinder" style="color: #06B6D4;"></i>
+                                                {% elif skill.name == "Design Systems" %}
+                                                    <i class="fa-solid fa-shapes" style="color: #8B5CF6;"></i>
                                                 {% else %}
                                                     <i class="fa-solid fa-code" style="color: #7000ff;"></i>
                                                 {% endif %}
