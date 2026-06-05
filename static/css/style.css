@@ -1744,7 +1744,7 @@ body::before {
     display: grid;
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     gap: clamp(2rem, 7vw, 7rem);
-    margin-top: 5rem;
+    margin-top: 0;
     padding: clamp(2rem, 5vw, 4.5rem);
     border: 1px solid var(--border-color);
     border-radius: 24px;

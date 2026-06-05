@@ -284,6 +284,7 @@
         <!-- Client Testimonials -->
         <section id="testimonials" class="testimonials-section">
             <div class="container">
+                {% if testimonials %}
                 <div class="testimonials-heading">
                     <div>
                         <span class="testimonials-eyebrow"><span></span> Client stories</span>
@@ -312,6 +313,7 @@
                     </article>
                     {% endfor %}
                 </div>
+                {% endif %}
 
                 <div class="feedback-panel" id="feedback">
                     <div class="feedback-copy">

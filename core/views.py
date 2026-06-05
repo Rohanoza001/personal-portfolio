@@ -140,29 +140,7 @@ def portfolio(request):
                 'desc': 'Assisted clients with software and hardware support, troubleshooting technical issues, and improving the reliability of day-to-day systems.'
             }
         ],
-        'testimonials': [
-            {
-                'quote': 'Rohan translated a complex product idea into a polished experience that felt simple, fast, and genuinely enjoyable to use.',
-                'name': 'Anika Sharma',
-                'initials': 'AS',
-                'role': 'Product Lead',
-                'company': 'Northstar Labs'
-            },
-            {
-                'quote': 'The attention to detail was exceptional. Our new platform looks sharper, performs better, and has made our team more confident.',
-                'name': 'Marcus Chen',
-                'initials': 'MC',
-                'role': 'Founder',
-                'company': 'Frame Analytics'
-            },
-            {
-                'quote': 'Clear communication, thoughtful decisions, and dependable delivery from start to finish. Rohan felt like part of our internal team.',
-                'name': 'Priya Mehta',
-                'initials': 'PM',
-                'role': 'Design Director',
-                'company': 'Studio Current'
-            }
-        ]
+        'testimonials': []
     }
     return render(request, 'portfolio.html', context)
 
