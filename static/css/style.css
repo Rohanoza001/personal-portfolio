@@ -1481,7 +1481,7 @@ body::before {
     display: flex;
     align-items: center;
     gap: 1.5rem;
-    margin-top: auto;
+    margin-top: 2.2rem;
 }
 
 .project-modern-btn,
