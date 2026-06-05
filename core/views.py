@@ -57,9 +57,9 @@ def portfolio(request):
             'phone': '+91 98765 43210',
             'location': 'Mumbai, India',
             'resume_url': '#',
-            'github': 'https://github.com',
-            'linkedin': 'https://linkedin.com',
-            'twitter': 'https://twitter.com'
+            'github': 'https://github.com/Rohanoza001',
+            'linkedin': 'https://www.linkedin.com/in/rohan-oza/',
+            'twitter': 'https://x.com/home'
         },
         'skills': [
             {
