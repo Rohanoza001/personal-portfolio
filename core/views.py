@@ -50,7 +50,7 @@ def portfolio(request):
     context = {
         'profile': {
             'name': 'Rohan',
-            'title': 'Full Stack Developer & UI/UX Designer',
+            'title': 'UI/UX Developer',
             'tagline': 'Crafting premium digital experiences through clean code and modern design.',
             'bio': 'I build high-performance, visually stunning web applications with cutting-edge technologies. Passionate about clean code, modern aesthetics, and seamless user experiences.',
             'email': 'rohan@example.com',
