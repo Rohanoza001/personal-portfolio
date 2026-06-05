@@ -2350,6 +2350,11 @@ textarea.cta-form-input {
     .section-subtitle {
         font-size: 1rem;
     }
+
+    .hero-socials,
+    .scroll-down-indicator {
+        display: none;
+    }
     
     .mobile-menu-toggle {
         display: flex;
