@@ -1307,7 +1307,7 @@ body::before {
     font-size: clamp(3.6rem, 7vw, 6.8rem);
     font-weight: 800;
     letter-spacing: -0.025em;
-    line-height: 0.88;
+    line-height: 1.02;
 }
 
 .projects-title span {
@@ -1552,6 +1552,7 @@ body::before {
 
     .projects-title {
         font-size: clamp(3rem, 15vw, 4.5rem);
+        line-height: 1.08;
     }
 
     .project-modern-title {
