@@ -243,6 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorDot.className = 'custom-cursor-dot';
         document.body.appendChild(cursor);
         document.body.appendChild(cursorDot);
+        document.body.classList.add('custom-cursor-active');
 
         let mouseX = 0, mouseY = 0;
         let cursorX = 0, cursorY = 0;
@@ -251,6 +252,8 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mousemove', (e) => {
             mouseX = e.clientX;
             mouseY = e.clientY;
+            cursor.classList.add('visible');
+            cursorDot.classList.add('visible');
         });
 
         function animateCursor() {
