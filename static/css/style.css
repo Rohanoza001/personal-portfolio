@@ -2366,6 +2366,10 @@ textarea.cta-form-input {
         --section-padding: 4rem 0;
     }
 
+    .cta-contact-section {
+        padding-bottom: 2.5rem;
+    }
+
     body.mobile-drawer-open {
         overflow: hidden;
     }
