@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-mobile-hero-scale">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-bio-eyebrow-line">
 </head>
 <body class="dark-theme">
     <!-- Page Loader -->
@@ -143,7 +143,7 @@
         <!-- About Section -->
         <section id="about" class="bio-section">
             <div class="container bio-container">
-                <span class="bio-kicker">Bio</span>
+                <span class="bio-kicker"><span></span> Bio</span>
                 <h2 class="bio-title">A Fresher With a Builder's Mindset</h2>
                 <div class="bio-copy">
                     {% for paragraph in profile.bio_paragraphs %}
@@ -267,7 +267,7 @@
                 <div class="projects-heading">
                     <div class="projects-heading-copy">
                         <span class="projects-eyebrow"><span></span> Case study</span>
-                        <h2 class="projects-title">Recent projects,<br><span>built to matter.</span></h2>
+                        <h2 class="projects-title">Case<br><span>study.</span></h2>
                     </div>
                     <div class="projects-heading-meta">
                         <span class="projects-count">{{ projects|length|stringformat:"02d" }} / CASE STUDIES</span>
