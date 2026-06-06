@@ -816,6 +816,46 @@ body::before {
 }
 
 /* ==========================================
+   BIO SECTION
+   ========================================== */
+.bio-section {
+    padding: 5rem 0 2rem;
+    background: var(--bg-base);
+    position: relative;
+    z-index: 2;
+}
+
+.bio-kicker {
+    display: inline-flex;
+    color: var(--accent-color);
+    font-family: var(--font-heading);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.bio-title {
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+}
+
+.bio-copy {
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    line-height: 1.85;
+}
+
+.bio-copy p + p {
+    margin-top: 1.15rem;
+}
+
+/* ==========================================
    ABOUT & SKILLS SECTION - MODERN DESIGN
    ========================================== */
 .about-section {
@@ -2385,11 +2425,61 @@ textarea.cta-form-input {
     }
 
     .hero-section {
-        padding-top: 6.2rem;
+        padding-top: 5.8rem;
+        padding-bottom: 3.25rem;
+        min-height: auto;
+    }
+
+    .hero-container {
+        gap: 2rem;
+    }
+
+    .hero-content {
+        gap: 0;
+    }
+
+    .bio-section {
+        padding: 3rem 0 1rem;
+    }
+
+    .bio-container {
+        width: calc(100% - 20px);
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .bio-copy {
+        font-size: 1rem;
+        line-height: 1.75;
     }
     
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.55rem;
+        line-height: 1.05;
+        margin-bottom: 0.75rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.45rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-description {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        max-width: 330px;
+        margin-bottom: 1.75rem;
+    }
+
+    .hero-actions {
+        gap: 0.75rem;
+        margin-bottom: 0;
+    }
+
+    .hero-actions .btn {
+        min-height: 44px;
+        padding: 0.82rem 1.25rem;
+        font-size: 0.9rem;
     }
     
     .section-title {
@@ -2637,7 +2727,7 @@ textarea.cta-form-input {
     }
     
     .hero-portrait-stage {
-        width: min(390px, 88vw);
+        width: min(310px, 72vw);
         margin: 0 auto;
     }
 }

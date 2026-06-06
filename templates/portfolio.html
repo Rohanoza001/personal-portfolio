@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-mobile-contact-gap">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-mobile-hero-scale">
 </head>
 <body class="dark-theme">
     <!-- Page Loader -->
@@ -56,6 +56,7 @@
                     </div>
                 </div>
                 <ul class="nav-list">
+                    <li><a href="#about" class="nav-link"><i class="fa-solid fa-user mobile-nav-icon"></i><span>Bio</span></a></li>
                     <li><a href="#skill" class="nav-link"><i class="fa-solid fa-layer-group mobile-nav-icon"></i><span>Skill</span></a></li>
                     <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase mobile-nav-icon"></i><span>Experience</span></a></li>
                     <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open mobile-nav-icon"></i><span>Case Study</span></a></li>
@@ -135,7 +136,20 @@
                 </div>
             </div>
             <div class="scroll-down-indicator">
-                <a href="#skill" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
+                <a href="#about" aria-label="Scroll down"><i class="fa-solid fa-chevron-down"></i></a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="bio-section">
+            <div class="container bio-container">
+                <span class="bio-kicker">Bio</span>
+                <h2 class="bio-title">A Fresher With a Builder's Mindset</h2>
+                <div class="bio-copy">
+                    {% for paragraph in profile.bio_paragraphs %}
+                    <p>{{ paragraph }}</p>
+                    {% endfor %}
+                </div>
             </div>
         </section>
 
@@ -148,7 +162,6 @@
                         <h2 class="about-main-title">
                             My <span class="title-highlight">Skills</span>
                         </h2>
-                        <p class="about-lead">{{ profile.bio }}</p>
                     </div>
                 </div>
 
@@ -416,7 +429,7 @@
                                 </div>
                                 <div class="cta-method-info">
                                     <span class="cta-method-label">BASED IN</span>
-                                    <span class="cta-method-value">{{ profile.location }} — Open to remote</span>
+                                    <span class="cta-method-value">{{ profile.location }}</span>
                                 </div>
                             </div>
                         </div>
@@ -440,7 +453,7 @@
                             </div>
                             <div class="cta-form-group">
                                 <label for="contact-phone" class="cta-form-label">MOBILE NUMBER</label>
-                                <input type="tel" id="contact-phone" name="phone" class="cta-form-input" placeholder="+91 98765 43210" required>
+                                <input type="tel" id="contact-phone" name="phone" class="cta-form-input" placeholder="+91 72087 90526" required>
                                 <span class="error-msg" id="phone-error">Please enter your mobile number</span>
                             </div>
                             <div class="cta-form-group">
