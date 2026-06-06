@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-mobile-hero-gap">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}?v=20260606-mobile-drawer-cta-button">
 </head>
 <body class="dark-theme">
     <!-- Page Loader -->
@@ -46,13 +46,36 @@
                 <span class="logo-name">{{ profile.name }}</span>
             </a>
             
+            <span id="mobile-nav-anchor" hidden></span>
             <nav class="nav" id="main-nav">
+                <div class="mobile-drawer-profile" aria-hidden="true">
+                    <span class="logo-mark">R</span>
+                    <div>
+                        <span class="mobile-drawer-name">{{ profile.name }}</span>
+                        <span class="mobile-drawer-title">{{ profile.title }}</span>
+                    </div>
+                </div>
                 <ul class="nav-list">
-                    <li><a href="#skill" class="nav-link">Skill</a></li>
-                    <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                    <li><a href="#skill" class="nav-link"><i class="fa-solid fa-layer-group mobile-nav-icon"></i><span>Skill</span></a></li>
+                    <li><a href="#experience" class="nav-link"><i class="fa-solid fa-briefcase mobile-nav-icon"></i><span>Experience</span></a></li>
+                    <li><a href="#projects" class="nav-link"><i class="fa-solid fa-folder-open mobile-nav-icon"></i><span>Case Study</span></a></li>
+                    <li><a href="#testimonials" class="nav-link"><i class="fa-solid fa-comment-dots mobile-nav-icon"></i><span>Testimonials</span></a></li>
                 </ul>
+                <div class="mobile-drawer-details" aria-hidden="true">
+                    <div class="mobile-drawer-detail">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+                    </div>
+                    <div class="mobile-drawer-detail">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>{{ profile.phone }}</span>
+                    </div>
+                    <div class="mobile-drawer-detail">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>{{ profile.location }}</span>
+                    </div>
+                </div>
+                <a href="#contact" class="mobile-drawer-cta">Get in touch</a>
             </nav>
             
             <div class="nav-actions">
@@ -72,6 +95,7 @@
             </div>
         </div>
     </header>
+    <div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop" aria-hidden="true"></div>
 
     <main>
         <!-- Hero Section -->
@@ -463,6 +487,6 @@
     </div>
 
     <!-- Custom JS -->
-    <script src="{% static 'js/main.js' %}?v=20260606-cursor-visible"></script>
+    <script src="{% static 'js/main.js' %}?v=20260606-mobile-drawer-mounted-2"></script>
 </body>
 </html>
